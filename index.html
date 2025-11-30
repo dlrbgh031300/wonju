@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>원주 배달라이더 모집</title>
+    <title>배민플러스 원주 협력사 라이더 모집</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2AC1BC;
+            --accent: #FF6B00;
+            --cta: #FEE500;
+            --danger: #FF5252;
         }
 
         body {
@@ -23,238 +30,378 @@
             margin: 0 auto;
             background-color: #fff;
             min-height: 100vh;
+            padding-top: 40px;
         }
 
-        /* 헤더 - 축소 */
-        .header {
-            background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+        /* 긴급성 배너 - 최상단 고정 */
+        .urgency-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--danger);
             color: white;
-            padding: 20px 20px;
+            padding: 10px 20px;
             text-align: center;
-        }
-
-        .header h1 {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .header p {
             font-size: 14px;
-            opacity: 0.95;
-        }
-
-        /* 카톡 버튼 */
-        .cta-section {
-            padding: 20px 20px;
-            background-color: #fff;
-        }
-
-        .cta-button {
-            display: block;
-            background-color: #FEE500;
-            color: #3C1E1E;
-            text-decoration: none;
-            padding: 18px 24px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(254, 229, 0, 0.5);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .cta-button .icon {
-            margin-right: 8px;
-        }
-
-        .cta-sub {
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
-        .phone-link {
-            display: block;
-            text-align: center;
-            color: #FF6B00;
-            font-size: 16px;
             font-weight: 600;
-            margin-top: 12px;
-            text-decoration: none;
+            z-index: 101;
         }
 
-        /* 프로모션 배너 - 애니메이션 추가 */
-        .promo-banner {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, #2AC1BC 0%, #1FAF9E 100%);
             color: white;
-            padding: 16px 20px;
-            margin: 0 20px;
-            border-radius: 12px;
+            padding: 28px 20px 32px;
             text-align: center;
-            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
-            }
-        }
-
-        .promo-banner .label {
-            font-size: 14px;
-            opacity: 0.95;
-            margin-bottom: 4px;
-        }
-
-        .promo-banner .amount {
-            font-size: 18px;
-            font-weight: 800;
-        }
-
-        .promo-banner .highlight {
+        .hero .badge {
             display: inline-block;
             background-color: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 22px;
-            animation: bounce 1s ease infinite;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 14px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+        .hero h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
-        /* 섹션 */
-        .section {
-            padding: 25px 20px;
+        .hero .sub {
+            font-size: 15px;
+            opacity: 0.95;
+            margin-bottom: 16px;
+        }
+
+        .hero-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            font-size: 13px;
+            margin-top: 14px;
+        }
+
+        .hero-benefits span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 수입 테이블 */
+        .income-section {
+            padding: 24px 20px;
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        /* 혜택 리스트 */
-        .benefit-list {
-            list-style: none;
-        }
-
-        .benefit-item {
+        .income-row {
             display: flex;
-            align-items: flex-start;
+            justify-content: space-between;
             padding: 14px 0;
             border-bottom: 1px solid #eee;
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
         }
 
-        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
-        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
-        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .benefit-item:last-child {
+        .income-row:last-child {
             border-bottom: none;
         }
 
-        .benefit-icon {
+        .income-row .type {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .income-row .amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .income-note {
+            font-size: 13px;
+            color: var(--accent);
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        /* CTA 버튼 공통 */
+        .cta-section {
+            padding: 0 20px 24px;
+        }
+
+        .cta-button-primary {
+            display: block;
+            background-color: var(--cta);
+            color: #3C1E1E;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
+        }
+
+        .cta-sub-text {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            margin-top: 8px;
+        }
+
+        /* 리스크 제거 섹션 (상단 배치) */
+        .risk-section {
+            padding: 24px 20px;
+            background-color: #FFF8E1;
+        }
+
+        .risk-qa {
+            margin-bottom: 16px;
+        }
+
+        .risk-qa:last-child {
+            margin-bottom: 0;
+        }
+
+        .risk-q {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .risk-a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            padding-left: 16px;
+        }
+
+        /* 차별점 섹션 */
+        .diff-section {
+            padding: 24px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .diff-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 0;
+            gap: 14px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .diff-item:last-child {
+            border-bottom: none;
+        }
+
+        .diff-icon {
             width: 40px;
             height: 40px;
-            background-color: #FFF3E0;
+            background-color: #E0F7F6;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            margin-right: 14px;
             flex-shrink: 0;
         }
 
-        .benefit-content h3 {
-            font-size: 16px;
-            font-weight: 600;
+        .diff-text {
+            flex: 1;
+        }
+
+        .diff-text strong {
+            font-size: 15px;
+            display: block;
             margin-bottom: 2px;
         }
 
-        .benefit-content p {
-            font-size: 14px;
+        .diff-text span {
+            font-size: 13px;
             color: #666;
         }
 
-        /* 수입 테이블 */
-        .income-table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .income-table th {
-            background-color: #FF6B00;
+        .unique-tag {
+            display: inline-block;
+            background-color: var(--danger);
             color: white;
-            padding: 14px;
-            font-size: 14px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
             font-weight: 600;
         }
 
-        .income-table td {
-            padding: 14px;
+        /* 후기 섹션 */
+        .review-section {
+            padding: 24px 20px;
+        }
+
+        .review-card {
+            background-color: #f8f9fa;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .review-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .review-income {
+            font-size: 13px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* 중간 CTA */
+        .cta-mid {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .cta-button-secondary {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
             text-align: center;
-            border-bottom: 1px solid #eee;
+        }
+
+        /* 준비물 섹션 */
+        .prep-section {
+            padding: 24px 20px;
+            background-color: #E8F5E9;
+        }
+
+        .prep-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .prep-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 15px;
         }
 
-        .income-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .income-table .amount {
+        .prep-item .check {
+            color: #4CAF50;
             font-weight: 700;
-            color: #FF6B00;
         }
 
-        .income-note {
+        .prep-note {
             font-size: 13px;
-            color: #888;
-            margin-top: 10px;
+            color: #666;
+            margin-top: 12px;
+            text-align: center;
         }
 
-        /* FAQ */
+        /* 가입 절차 */
+        .process-section {
+            padding: 24px 20px;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .process-step {
+            flex: 1;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -4px;
+            top: 20px;
+            color: #ccc;
+            font-size: 16px;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .process-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #E0F7F6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 8px;
+        }
+
+        .process-text {
+            font-size: 13px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* 안전/지원 섹션 */
+        .safety-section {
+            padding: 24px 20px;
+            background-color: #f8f9fa;
+        }
+
+        .safety-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .safety-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .safety-item .check {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* FAQ 섹션 */
+        .faq-section {
+            padding: 24px 20px;
+        }
+
         .faq-item {
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid #eee;
         }
 
@@ -264,48 +411,33 @@
 
         .faq-q {
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             margin-bottom: 6px;
             color: #333;
         }
 
         .faq-a {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
-            padding-left: 0;
-        }
-
-        /* 사회적 증거 */
-        .social-proof {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            font-size: 15px;
-            color: #555;
-        }
-
-        .social-proof strong {
-            color: #FF6B00;
-            font-size: 20px;
         }
 
         /* 푸터 */
         .footer {
             background-color: #333;
             color: #999;
-            padding: 25px 20px;
-            font-size: 13px;
+            padding: 24px 20px 100px;
+            font-size: 12px;
         }
 
         .footer-title {
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer p {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         /* 플로팅 버튼 */
@@ -318,124 +450,238 @@
             padding: 12px 20px;
             box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
             z-index: 100;
+            display: flex;
+            gap: 10px;
         }
 
         .floating-cta .cta-button {
-            margin-bottom: 0;
-            animation: none;
+            flex: 1;
+            display: block;
+            background-color: var(--cta);
+            color: #3C1E1E;
+            text-decoration: none;
+            padding: 14px 12px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
         }
 
-        /* 플로팅 버튼 공간 확보 */
-        .footer {
-            padding-bottom: 100px;
+        .floating-cta .phone-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 헤더 (축소) -->
-        <div class="header">
-            <h1>원주 배달라이더 모집</h1>
-            <p>오늘 가입하면 오늘 바로 시작</p>
-        </div>
+    <!-- 긴급성 배너 -->
+    <div class="urgency-banner">
+        🔥 12월 프로모션 매월 최대 100만원 추가 지급!
+    </div>
 
-        <!-- 프로모션 배너 (상단으로 이동) -->
-        <div style="padding: 20px 20px 0 20px;">
-            <div class="promo-banner">
-                <p class="label">🎁 배달 수입 +</p>
-                <p class="amount">매월 최대 <span class="highlight">100만원</span> 추가 지급 중!</p>
+    <div class="container">
+        <!-- 히어로 섹션 -->
+        <div class="hero">
+            <span class="badge">배달의민족 공식 협력사</span>
+            <h1>오늘 일하면 내일 입금<br>원하는 시간만큼</h1>
+            <p class="sub">배민플러스 원주 라이더 모집</p>
+            <div class="hero-benefits">
+                <span>✓ 익일정산</span>
+                <span>✓ 자유출퇴근</span>
+                <span>✓ 경력무관</span>
             </div>
         </div>
 
-        <!-- 카톡 버튼 (상단) -->
+        <!-- 수입 테이블 -->
+        <div class="income-section">
+            <h2 class="section-title">💵 예상 수입</h2>
+            <div class="income-row">
+                <span class="type">풀타임 (8시간)</span>
+                <span class="amount">월 400~600만원</span>
+            </div>
+            <div class="income-row">
+                <span class="type">투잡 (하루 3시간)</span>
+                <span class="amount">월 150~200만원</span>
+            </div>
+            <div class="income-row">
+                <span class="type">주말만 (토·일)</span>
+                <span class="amount">월 80~120만원</span>
+            </div>
+            <p class="income-note">+ 프로모션 최대 100만원 별도</p>
+        </div>
+
+        <!-- CTA 1 -->
         <div class="cta-section">
-            <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button">
-                <span class="icon">💬</span>카카오톡으로 바로 문의하기
+            <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button-primary">
+                💬 지금 시작하기
             </a>
-            <p class="cta-sub">"배달 시작하고 싶은데요" 이렇게만 보내주세요!</p>
-            <a href="tel:010-9943-3178" class="phone-link">📞 010-9943-3178</a>
+            <p class="cta-sub-text">강요 없이 편하게 물어보세요</p>
         </div>
 
-        <!-- 혜택 섹션 -->
-        <div class="section">
-            <h2 class="section-title">✅ 왜 저희인가요?</h2>
-            <ul class="benefit-list">
-                <li class="benefit-item">
-                    <div class="benefit-icon">💰</div>
-                    <div class="benefit-content">
-                        <h3>익일정산</h3>
-                        <p>정산 밀린 적 없습니다</p>
-                    </div>
-                </li>
-                <li class="benefit-item">
-                    <div class="benefit-icon">🚗</div>
-                    <div class="benefit-content">
-                        <h3>사고지원</h3>
-                        <p>견인 + 사고처리 + 무료 법률상담</p>
-                    </div>
-                </li>
-                <li class="benefit-item">
-                    <div class="benefit-icon">🕐</div>
-                    <div class="benefit-content">
-                        <h3>간섭 없음</h3>
-                        <p>원하는 시간에 자유롭게</p>
-                    </div>
-                </li>
-            </ul>
+        <!-- 리스크 제거 섹션 (상단 배치) -->
+        <div class="risk-section">
+            <h2 class="section-title">❓ 이런 걱정되시나요?</h2>
+            
+            <div class="risk-qa">
+                <p class="risk-q">"강요 있으면 어쩌지?"</p>
+                <p class="risk-a">→ 절대 없어요. 문의만 하셔도 OK</p>
+            </div>
+            
+            <div class="risk-qa">
+                <p class="risk-q">"못 벌면 어쩌지?"</p>
+                <p class="risk-a">→ 3시간만 해도 하루 5만원 이상</p>
+            </div>
+            
+            <div class="risk-qa">
+                <p class="risk-q">"경험 없는데 괜찮을까?"</p>
+                <p class="risk-a">→ 절반 이상이 초보로 시작했어요</p>
+            </div>
         </div>
 
-        <!-- 수입 섹션 -->
-        <div class="section">
-            <h2 class="section-title">💵 얼마나 벌 수 있나요?</h2>
-            <table class="income-table">
-                <tr>
-                    <th>유형</th>
-                    <th>월수입</th>
-                </tr>
-                <tr>
-                    <td>풀타임</td>
-                    <td class="amount">400~600만원</td>
-                </tr>
-                <tr>
-                    <td>투잡 (3시간 기준)</td>
-                    <td class="amount">150~200만원</td>
-                </tr>
-                <tr>
-                    <td>주말에만</td>
-                    <td class="amount">150~200만원</td>
-                </tr>
-            </table>
-            <p class="income-note">* 프로모션 추가 지급 별도</p>
+        <!-- 차별점 섹션 -->
+        <div class="diff-section">
+            <h2 class="section-title">✅ 여기가 다른 이유</h2>
+            
+            <div class="diff-item">
+                <div class="diff-icon">💰</div>
+                <div class="diff-text">
+                    <strong>익일정산</strong>
+                    <span>오늘 일한 거 내일 입금, 돈 안 묶여요</span>
+                </div>
+            </div>
+            
+            <div class="diff-item">
+                <div class="diff-icon">🚗</div>
+                <div class="diff-text">
+                    <strong>무료견인 + 사고처리 <span class="unique-tag">원주 유일</span></strong>
+                    <span>사고 나도 혼자 해결 안 해도 돼요</span>
+                </div>
+            </div>
+            
+            <div class="diff-item">
+                <div class="diff-icon">🕐</div>
+                <div class="diff-text">
+                    <strong>간섭 없음</strong>
+                    <span>출근 강요 없이 내 페이스대로</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 후기 섹션 -->
+        <div class="review-section">
+            <h2 class="section-title">💬 실제 라이더 후기</h2>
+            
+            <div class="review-card">
+                <p class="review-text">"다른 데서 정산 일주일씩 밀려서 스트레스 받다가 옮겼어요. 여긴 진짜 다음날 입금돼요."</p>
+                <p class="review-author">- 풀타임 3개월차</p>
+                <p class="review-income">월평균 480만원</p>
+            </div>
+            
+            <div class="review-card">
+                <p class="review-text">"회사 끝나고 3시간씩, 주 5일 뛰고 있어요. 간섭 없어서 편하게 하고 있습니다."</p>
+                <p class="review-author">- 투잡 라이더, 직장인</p>
+                <p class="review-income">월평균 147만원</p>
+            </div>
+        </div>
+
+        <!-- 중간 CTA -->
+        <div class="cta-mid">
+            <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button-secondary">
+                💬 편하게 물어보기
+            </a>
+        </div>
+
+        <!-- 준비물 섹션 -->
+        <div class="prep-section">
+            <h2 class="section-title">🛵 준비물</h2>
+            
+            <div class="prep-list">
+                <div class="prep-item">
+                    <span class="check">✓</span>
+                    <span>오토바이 (125cc 이상 권장)</span>
+                </div>
+                <div class="prep-item">
+                    <span class="check">✓</span>
+                    <span>스마트폰</span>
+                </div>
+                <div class="prep-item">
+                    <span class="check">✓</span>
+                    <span>배민커넥트 앱 설치</span>
+                </div>
+            </div>
+            <p class="prep-note">이것만 있으면 바로 시작!</p>
+        </div>
+
+        <!-- 가입 절차 -->
+        <div class="process-section">
+            <h2 class="section-title">📋 가입 절차</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-icon">💬</div>
+                    <p class="process-text">카톡 문의</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">📝</div>
+                    <p class="process-text">1분 등록</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon">🛵</div>
+                    <p class="process-text">당일 시작</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 안전/지원 섹션 -->
+        <div class="safety-section">
+            <h2 class="section-title">🛡 안전하게 지원해드려요</h2>
+            
+            <div class="safety-list">
+                <div class="safety-item">
+                    <span class="check">✓</span>
+                    <span>무료견인 - 고장/사고 시 즉시 지원</span>
+                </div>
+                <div class="safety-item">
+                    <span class="check">✓</span>
+                    <span>사고처리 - 복잡한 절차 대신 처리</span>
+                </div>
+                <div class="safety-item">
+                    <span class="check">✓</span>
+                    <span>법률 상담 - 전문가 무료 상담</span>
+                </div>
+                <div class="safety-item">
+                    <span class="check">✓</span>
+                    <span>협력 정비소 - 수리비 할인</span>
+                </div>
+            </div>
         </div>
 
         <!-- FAQ 섹션 -->
-        <div class="section">
+        <div class="faq-section">
             <h2 class="section-title">❓ 자주 묻는 질문</h2>
             
             <div class="faq-item">
-                <p class="faq-q">경력 없어도 되나요?</p>
-                <p class="faq-a">→ 네, 무관입니다. 처음 시작하시는 분들 많아요.</p>
+                <p class="faq-q">정산은 언제 되나요?</p>
+                <p class="faq-a">→ 주정산이 기본! 원하시면 익일정산도 가능해요.</p>
             </div>
             
             <div class="faq-item">
-                <p class="faq-q">정산 언제 되나요?</p>
-                <p class="faq-a">→ 익일정산 OK, 주정산 OK 원하시는 날에 정상 받으세요.</p>
+                <p class="faq-q">시간은 자유롭나요?</p>
+                <p class="faq-a">→ 네, 출근 강요 없어요. 1시간만 해도 OK!</p>
             </div>
             
             <div class="faq-item">
-                <p class="faq-q">시간 자유롭나요?</p>
-                <p class="faq-a">→ 네, 출근 강요없습니다. 원하는 시간에 원하는 만큼 일하시면 돼요!</p>
+                <p class="faq-q">다른 협력사에서 옮겨도 되나요?</p>
+                <p class="faq-a">→ 네, 바로 가능해요. 정산 문제로 옮기시는 분 많아요.</p>
             </div>
-            
-            <div class="faq-item">
-                <p class="faq-q">가입 복잡한가요?</p>
-                <p class="faq-a">→ 간단하게. 1분이면 됩니다.</p>
-            </div>
-        </div>
-
-        <!-- 사회적 증거 -->
-        <div class="social-proof">
-            현재 <strong>165명</strong>의 라이더가 함께하고 있습니다
         </div>
 
         <!-- 푸터 (사업자 정보) -->
@@ -450,7 +696,10 @@
         <!-- 플로팅 CTA 버튼 -->
         <div class="floating-cta">
             <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button">
-                <span class="icon">💬</span>카카오톡으로 바로 문의하기
+                💬 지금 시작하기
+            </a>
+            <a href="tel:01099433178" class="phone-button">
+                📞 바로 상담
             </a>
         </div>
     </div>
