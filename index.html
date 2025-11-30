@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원주 배달라이더 모집</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+        }
+
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* 카톡 버튼 */
+        .cta-section {
+            padding: 25px 20px;
+            background-color: #fff;
+        }
+
+        .cta-button {
+            display: block;
+            background-color: #FEE500;
+            color: #3C1E1E;
+            text-decoration: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(254, 229, 0, 0.5);
+        }
+
+        .cta-button .icon {
+            margin-right: 8px;
+        }
+
+        .cta-sub {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .phone-link {
+            display: block;
+            text-align: center;
+            color: #FF6B00;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 12px;
+            text-decoration: none;
+        }
+
+        /* 프로모션 배너 */
+        .promo-banner {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 20px;
+            margin: 0 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .promo-banner .label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .promo-banner .amount {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        /* 섹션 */
+        .section {
+            padding: 25px 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 혜택 리스트 */
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #FFF3E0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 14px;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .benefit-content p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 수입 테이블 */
+        .income-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .income-table th {
+            background-color: #FF6B00;
+            color: white;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .income-table td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+        }
+
+        .income-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .income-table .amount {
+            font-weight: 700;
+            color: #FF6B00;
+        }
+
+        .income-note {
+            font-size: 13px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: #666;
+            padding-left: 0;
+        }
+
+        /* 사회적 증거 */
+        .social-proof {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .social-proof strong {
+            color: #FF6B00;
+            font-size: 20px;
+        }
+
+        /* 푸터 */
+        .footer {
+            background-color: #333;
+            color: #999;
+            padding: 25px 20px;
+            font-size: 13px;
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer p {
+            margin-bottom: 4px;
+        }
+
+        /* 플로팅 버튼 */
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            padding: 12px 20px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .floating-cta .cta-button {
+            margin-bottom: 0;
+        }
+
+        /* 플로팅 버튼 공간 확보 */
+        .footer {
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <h1>원주 배달라이더 모집</h1>
+            <p>오늘 가입하면 오늘 바로 시작</p>
+        </div>
+
+        <!-- 카톡 버튼 (상단) -->
+        <div class="cta-section">
+            <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button">
+                <span class="icon">💬</span>카카오톡으로 바로 문의하기
+            </a>
+            <p class="cta-sub">"배달 시작하고 싶은데요" 이렇게만 보내주세요!</p>
+            <a href="tel:010-9943-3178" class="phone-link">📞 010-9943-3178</a>
+        </div>
+
+        <!-- 프로모션 배너 -->
+        <div class="promo-banner">
+            <p class="label">🎁 지금 프로모션 진행 중</p>
+            <p class="amount">월 최대 80만원 추가</p>
+        </div>
+
+        <!-- 혜택 섹션 -->
+        <div class="section">
+            <h2 class="section-title">✅ 왜 저희인가요?</h2>
+            <ul class="benefit-list">
+                <li class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-content">
+                        <h3>익일정산</h3>
+                        <p>정산 밀린 적 없습니다</p>
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon">🚗</div>
+                    <div class="benefit-content">
+                        <h3>사고지원</h3>
+                        <p>견인 + 사고처리 + 무료 법률상담</p>
+                    </div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon">🕐</div>
+                    <div class="benefit-content">
+                        <h3>간섭 없음</h3>
+                        <p>원하는 시간에 자유롭게</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 수입 섹션 -->
+        <div class="section">
+            <h2 class="section-title">💵 얼마나 벌 수 있나요?</h2>
+            <table class="income-table">
+                <tr>
+                    <th>유형</th>
+                    <th>월수입</th>
+                </tr>
+                <tr>
+                    <td>풀타임</td>
+                    <td class="amount">400~600만원</td>
+                </tr>
+                <tr>
+                    <td>투잡 (퇴근 후)</td>
+                    <td class="amount">120~150만원</td>
+                </tr>
+                <tr>
+                    <td>주말만</td>
+                    <td class="amount">100~120만원</td>
+                </tr>
+            </table>
+            <p class="income-note">* 프로모션 추가 지급 별도</p>
+        </div>
+
+        <!-- FAQ 섹션 -->
+        <div class="section">
+            <h2 class="section-title">❓ 자주 묻는 질문</h2>
+            
+            <div class="faq-item">
+                <p class="faq-q">경력 없어도 되나요?</p>
+                <p class="faq-a">→ 네, 무관입니다. 처음 시작하시는 분들 많아요.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">정산 언제 되나요?</p>
+                <p class="faq-a">→ 익일정산 가능. 밀린 적 없습니다.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">시간 자유롭나요?</p>
+                <p class="faq-a">→ 네, 콜 강제 없어요. 원하는 시간에 원하는 만큼.</p>
+            </div>
+            
+            <div class="faq-item">
+                <p class="faq-q">가입 복잡한가요?</p>
+                <p class="faq-a">→ 카톡으로 이름, 전화번호, 배민아이디만 확인하면 끝. 3분이면 됩니다.</p>
+            </div>
+        </div>
+
+        <!-- 사회적 증거 -->
+        <div class="social-proof">
+            현재 <strong>113명</strong>의 라이더가 함께하고 있습니다
+        </div>
+
+        <!-- 푸터 (사업자 정보) -->
+        <div class="footer">
+            <p class="footer-title">사업자 정보</p>
+            <p>상호: 스파이더배달대행 원주통합지사</p>
+            <p>사업자등록번호: 788-31-01670</p>
+            <p>대표자: 정찬웅</p>
+            <p>소재지: 강원특별자치도 원주시 무실로55번길 24-5, 2층 202호</p>
+        </div>
+
+        <!-- 플로팅 CTA 버튼 -->
+        <div class="floating-cta">
+            <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button">
+                <span class="icon">💬</span>카카오톡으로 바로 문의하기
+            </a>
+        </div>
+    </div>
+</body>
+</html>
