@@ -25,27 +25,27 @@
             min-height: 100vh;
         }
 
-        /* 헤더 */
+        /* 헤더 - 축소 */
         .header {
             background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 20px 20px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 20px;
+            margin-bottom: 4px;
         }
 
         .header p {
-            font-size: 16px;
+            font-size: 14px;
             opacity: 0.95;
         }
 
         /* 카톡 버튼 */
         .cta-section {
-            padding: 25px 20px;
+            padding: 20px 20px;
             background-color: #fff;
         }
 
@@ -62,11 +62,18 @@
             margin-bottom: 12px;
             box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse 2s infinite;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(254, 229, 0, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
 
         .cta-button .icon {
@@ -90,25 +97,49 @@
             text-decoration: none;
         }
 
-        /* 프로모션 배너 */
+        /* 프로모션 배너 - 애니메이션 추가 */
         .promo-banner {
             background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
-            padding: 20px;
+            padding: 16px 20px;
             margin: 0 20px;
             border-radius: 12px;
             text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+            }
         }
 
         .promo-banner .label {
             font-size: 14px;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-bottom: 4px;
         }
 
         .promo-banner .amount {
-            font-size: 28px;
+            font-size: 18px;
             font-weight: 800;
+        }
+
+        .promo-banner .highlight {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 22px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
         /* 섹션 */
@@ -135,6 +166,23 @@
             align-items: flex-start;
             padding: 14px 0;
             border-bottom: 1px solid #eee;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .benefit-item:last-child {
@@ -274,6 +322,7 @@
 
         .floating-cta .cta-button {
             margin-bottom: 0;
+            animation: none;
         }
 
         /* 플로팅 버튼 공간 확보 */
@@ -284,10 +333,18 @@
 </head>
 <body>
     <div class="container">
-        <!-- 헤더 -->
+        <!-- 헤더 (축소) -->
         <div class="header">
             <h1>원주 배달라이더 모집</h1>
             <p>오늘 가입하면 오늘 바로 시작</p>
+        </div>
+
+        <!-- 프로모션 배너 (상단으로 이동) -->
+        <div style="padding: 20px 20px 0 20px;">
+            <div class="promo-banner">
+                <p class="label">🎁 배달 수입 +</p>
+                <p class="amount">매월 최대 <span class="highlight">80만원</span> 추가 지급 중!</p>
+            </div>
         </div>
 
         <!-- 카톡 버튼 (상단) -->
@@ -297,12 +354,6 @@
             </a>
             <p class="cta-sub">"배달 시작하고 싶은데요" 이렇게만 보내주세요!</p>
             <a href="tel:010-9943-3178" class="phone-link">📞 010-9943-3178</a>
-        </div>
-
-        <!-- 프로모션 배너 -->
-        <div class="promo-banner">
-            <p class="label">🎁 지금 프로모션 진행 중</p>
-            <p class="amount">월 최대 80만원 추가</p>
         </div>
 
         <!-- 혜택 섹션 -->
