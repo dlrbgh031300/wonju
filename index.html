@@ -16,6 +16,7 @@
             --accent: #FF6B00;
             --cta: #FEE500;
             --danger: #FF5252;
+            --success: #4CAF50;
         }
 
         body {
@@ -48,7 +49,7 @@
             z-index: 101;
         }
 
-        /* 히어로 섹션 */
+        /* ===== FOLD 1: 히어로 ===== */
         .hero {
             background: linear-gradient(135deg, #2AC1BC 0%, #1FAF9E 100%);
             color: white;
@@ -92,7 +93,7 @@
             gap: 4px;
         }
 
-        /* 수입 테이블 */
+        /* ===== 수입 테이블 ===== */
         .income-section {
             padding: 24px 20px;
         }
@@ -132,7 +133,7 @@
             font-weight: 600;
         }
 
-        /* CTA 버튼 공통 */
+        /* ===== CTA 공통 ===== */
         .cta-section {
             padding: 0 20px 24px;
         }
@@ -150,14 +151,24 @@
             box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
         }
 
-        .cta-sub-text {
+        .cta-button-secondary {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
             text-align: center;
-            font-size: 13px;
-            color: #888;
-            margin-top: 8px;
         }
 
-        /* 리스크 제거 섹션 (상단 배치) */
+        .cta-mid {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* ===== 걱정 해소 (리스크 제거) ===== */
         .risk-section {
             padding: 24px 20px;
             background-color: #FFF8E1;
@@ -184,7 +195,7 @@
             padding-left: 16px;
         }
 
-        /* 차별점 섹션 */
+        /* ===== 차별점 ===== */
         .diff-section {
             padding: 24px 20px;
             background-color: #f8f9fa;
@@ -240,7 +251,7 @@
             font-weight: 600;
         }
 
-        /* 후기 섹션 */
+        /* ===== 후기 ===== */
         .review-section {
             padding: 24px 20px;
         }
@@ -275,25 +286,7 @@
             margin-top: 4px;
         }
 
-        /* 중간 CTA */
-        .cta-mid {
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        .cta-button-secondary {
-            display: block;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        /* 준비물 섹션 */
+        /* ===== 준비물 + 리스/렌탈 ===== */
         .prep-section {
             padding: 24px 20px;
             background-color: #E8F5E9;
@@ -313,18 +306,31 @@
         }
 
         .prep-item .check {
-            color: #4CAF50;
+            color: var(--success);
             font-weight: 700;
         }
 
-        .prep-note {
-            font-size: 13px;
-            color: #666;
-            margin-top: 12px;
-            text-align: center;
+        .prep-rental {
+            margin-top: 16px;
+            padding: 14px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 2px solid var(--success);
         }
 
-        /* 가입 절차 */
+        .prep-rental-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 4px;
+        }
+
+        .prep-rental-text {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* ===== 가입 절차 ===== */
         .process-section {
             padding: 24px 20px;
         }
@@ -371,7 +377,7 @@
             font-weight: 600;
         }
 
-        /* 안전/지원 섹션 */
+        /* ===== 안전/지원 ===== */
         .safety-section {
             padding: 24px 20px;
             background-color: #f8f9fa;
@@ -395,7 +401,7 @@
             font-weight: 700;
         }
 
-        /* FAQ 섹션 */
+        /* ===== FAQ ===== */
         .faq-section {
             padding: 24px 20px;
         }
@@ -421,7 +427,7 @@
             color: #666;
         }
 
-        /* 푸터 */
+        /* ===== 푸터 ===== */
         .footer {
             background-color: #333;
             color: #999;
@@ -440,7 +446,7 @@
             margin-bottom: 3px;
         }
 
-        /* 플로팅 버튼 */
+        /* ===== 플로팅 CTA ===== */
         .floating-cta {
             position: fixed;
             bottom: 0;
@@ -482,13 +488,13 @@
     </style>
 </head>
 <body>
-    <!-- 긴급성 배너 -->
+    <!-- ===== 긴급성 배너 (Scarcity) ===== -->
     <div class="urgency-banner">
         🔥 12월 프로모션 매월 최대 100만원 추가 지급!
     </div>
 
     <div class="container">
-        <!-- 히어로 섹션 -->
+        <!-- ===== FOLD 1: 히어로 (Authority + Cognitive Fluency) ===== -->
         <div class="hero">
             <span class="badge">배달의민족 공식 협력사</span>
             <h1>오늘 일하면 내일 입금<br>원하는 시간만큼</h1>
@@ -500,7 +506,7 @@
             </div>
         </div>
 
-        <!-- 수입 테이블 -->
+        <!-- ===== 수입 테이블 (Comparison + Specificity) ===== -->
         <div class="income-section">
             <h2 class="section-title">💵 예상 수입</h2>
             <div class="income-row">
@@ -518,21 +524,20 @@
             <p class="income-note">+ 프로모션 최대 100만원 별도</p>
         </div>
 
-        <!-- CTA 1 -->
+        <!-- ===== CTA 1 (Commitment) ===== -->
         <div class="cta-section">
             <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button-primary">
                 💬 지금 시작하기
             </a>
-            <p class="cta-sub-text">강요 없이 편하게 물어보세요</p>
         </div>
 
-        <!-- 리스크 제거 섹션 (상단 배치) -->
+        <!-- ===== 걱정 해소 (Loss Aversion + Safety) ===== -->
         <div class="risk-section">
             <h2 class="section-title">❓ 이런 걱정되시나요?</h2>
             
             <div class="risk-qa">
                 <p class="risk-q">"강요 있으면 어쩌지?"</p>
-                <p class="risk-a">→ 절대 없어요. 문의만 하셔도 OK</p>
+                <p class="risk-a">→ 출근 강요, 콜 강요 없어요. 내 페이스대로</p>
             </div>
             
             <div class="risk-qa">
@@ -546,7 +551,7 @@
             </div>
         </div>
 
-        <!-- 차별점 섹션 -->
+        <!-- ===== 차별점 (Scarcity + Social Proof) ===== -->
         <div class="diff-section">
             <h2 class="section-title">✅ 여기가 다른 이유</h2>
             
@@ -554,7 +559,7 @@
                 <div class="diff-icon">💰</div>
                 <div class="diff-text">
                     <strong>익일정산</strong>
-                    <span>오늘 일한 거 내일 입금, 돈 안 묶여요</span>
+                    <span>오늘 번 돈, 내일 바로 입금</span>
                 </div>
             </div>
             
@@ -575,38 +580,38 @@
             </div>
         </div>
 
-        <!-- 후기 섹션 -->
+        <!-- ===== 후기 (Social Proof + Specificity) ===== -->
         <div class="review-section">
             <h2 class="section-title">💬 실제 라이더 후기</h2>
             
             <div class="review-card">
                 <p class="review-text">"다른 데서 정산 일주일씩 밀려서 스트레스 받다가 옮겼어요. 여긴 진짜 다음날 입금돼요."</p>
-                <p class="review-author">- 풀타임 3개월차</p>
+                <p class="review-author">— 풀타임 3개월차</p>
                 <p class="review-income">월평균 480만원</p>
             </div>
             
             <div class="review-card">
                 <p class="review-text">"회사 끝나고 3시간씩, 주 5일 뛰고 있어요. 간섭 없어서 편하게 하고 있습니다."</p>
-                <p class="review-author">- 투잡 라이더, 직장인</p>
+                <p class="review-author">— 투잡 라이더, 직장인</p>
                 <p class="review-income">월평균 147만원</p>
             </div>
         </div>
 
-        <!-- 중간 CTA -->
+        <!-- ===== CTA 2 (Commitment) ===== -->
         <div class="cta-mid">
             <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button-secondary">
                 💬 편하게 물어보기
             </a>
         </div>
 
-        <!-- 준비물 섹션 -->
+        <!-- ===== 준비물 + 리스/렌탈 (Barrier Removal) ===== -->
         <div class="prep-section">
             <h2 class="section-title">🛵 준비물</h2>
             
             <div class="prep-list">
                 <div class="prep-item">
                     <span class="check">✓</span>
-                    <span>오토바이 (125cc 이상 권장)</span>
+                    <span>이동수단</span>
                 </div>
                 <div class="prep-item">
                     <span class="check">✓</span>
@@ -617,10 +622,14 @@
                     <span>배민커넥트 앱 설치</span>
                 </div>
             </div>
-            <p class="prep-note">이것만 있으면 바로 시작!</p>
+            
+            <div class="prep-rental">
+                <p class="prep-rental-title">💡 이동수단 없어도 OK!</p>
+                <p class="prep-rental-text">자체 오토바이 리스/렌탈 운영 중 - 초기 부담 없이 시작</p>
+            </div>
         </div>
 
-        <!-- 가입 절차 -->
+        <!-- ===== 가입 절차 (Cognitive Fluency) ===== -->
         <div class="process-section">
             <h2 class="section-title">📋 가입 절차</h2>
             
@@ -640,7 +649,7 @@
             </div>
         </div>
 
-        <!-- 안전/지원 섹션 -->
+        <!-- ===== 안전/지원 (Safety/Reassurance) ===== -->
         <div class="safety-section">
             <h2 class="section-title">🛡 안전하게 지원해드려요</h2>
             
@@ -664,13 +673,13 @@
             </div>
         </div>
 
-        <!-- FAQ 섹션 -->
+        <!-- ===== FAQ (Objection Handling) ===== -->
         <div class="faq-section">
             <h2 class="section-title">❓ 자주 묻는 질문</h2>
             
             <div class="faq-item">
                 <p class="faq-q">정산은 언제 되나요?</p>
-                <p class="faq-a">→ 주정산이 기본! 원하시면 익일정산도 가능해요.</p>
+                <p class="faq-a">→ 익일정산이 기본! 원하시면 주정산도 가능해요.</p>
             </div>
             
             <div class="faq-item">
@@ -679,12 +688,17 @@
             </div>
             
             <div class="faq-item">
+                <p class="faq-q">오토바이 없어도 되나요?</p>
+                <p class="faq-a">→ 자체 리스/렌탈 운영 중이에요. 문의 주세요!</p>
+            </div>
+            
+            <div class="faq-item">
                 <p class="faq-q">다른 협력사에서 옮겨도 되나요?</p>
                 <p class="faq-a">→ 네, 바로 가능해요. 정산 문제로 옮기시는 분 많아요.</p>
             </div>
         </div>
 
-        <!-- 푸터 (사업자 정보) -->
+        <!-- ===== 푸터 ===== -->
         <div class="footer">
             <p class="footer-title">사업자 정보</p>
             <p>상호: 스파이더배달대행 원주통합지사</p>
@@ -693,7 +707,7 @@
             <p>소재지: 강원특별자치도 원주시 무실로55번길 24-5, 2층 202호</p>
         </div>
 
-        <!-- 플로팅 CTA 버튼 -->
+        <!-- ===== 플로팅 CTA (Commitment + Urgency) ===== -->
         <div class="floating-cta">
             <a href="https://pf.kakao.com/_lpfYn/chat" class="cta-button">
                 💬 지금 시작하기
