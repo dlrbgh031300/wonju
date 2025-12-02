@@ -14,6 +14,17 @@
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6L1KW89KPX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // GA4 초기화
+      gtag('config', 'G-6L1KW89KPX');
+    </script>
+
     <style>
         /* ===== 스타일 변수 및 초기화 ===== */
         :root {
@@ -399,7 +410,7 @@
                 </div>
             </div>
             <div style="margin-top: 24px; text-align: center;">
-                <a href="https://pf.kakao.com/_lpfYn/chat" style="color: var(--primary); text-decoration: underline; font-weight: 600;">지금 바로 문의하기 →</a>
+                <a href="https://pf.kakao.com/_lpfYn/chat" id="inquiry-link" style="color: var(--primary); text-decoration: underline; font-weight: 600;">지금 바로 문의하기 →</a>
             </div>
         </section>
 
@@ -467,16 +478,95 @@
         </footer>
 
         <nav class="bottom-nav">
-            <a href="https://pf.kakao.com/_lpfYn/chat" class="btn btn-kakao">
+            <a href="https://pf.kakao.com/_lpfYn/chat" id="kakao-btn" class="btn btn-kakao">
                 💬 카톡으로 물어보기
             </a>
-            <a href="tel:01099433178" class="btn btn-call">
+            <a href="tel:01099433178" id="phone-btn" class="btn btn-call">
                 📞 전화
             </a>
         </nav>
     </div>
 
     <script>
+        // ===== Google Analytics 이벤트 추적 =====
+        
+        // 1. 카톡 버튼 클릭 추적
+        document.getElementById('kakao-btn').addEventListener('click', function() {
+            gtag('event', 'click_kakao_floating', {
+                'event_category': 'CTA',
+                'event_label': 'Floating Kakao Button'
+            });
+        });
+        
+        // 2. 중간 문의 링크 클릭 추적
+        document.getElementById('inquiry-link').addEventListener('click', function() {
+            gtag('event', 'click_kakao_inline', {
+                'event_category': 'CTA',
+                'event_label': 'Inline Inquiry Link'
+            });
+        });
+        
+        // 3. 전화 버튼 클릭 추적
+        document.getElementById('phone-btn').addEventListener('click', function() {
+            gtag('event', 'click_phone', {
+                'event_category': 'CTA',
+                'event_label': 'Phone Button'
+            });
+        });
+        
+        // 4. 스크롤 깊이 추적
+        let scrollTracked = {
+            '25': false,
+            '50': false,
+            '75': false,
+            '100': false
+        };
+        
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+            
+            if (scrollPercent >= 25 && !scrollTracked['25']) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Scroll 25%'
+                });
+                scrollTracked['25'] = true;
+            }
+            if (scrollPercent >= 50 && !scrollTracked['50']) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Scroll 50%'
+                });
+                scrollTracked['50'] = true;
+            }
+            if (scrollPercent >= 75 && !scrollTracked['75']) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Scroll 75%'
+                });
+                scrollTracked['75'] = true;
+            }
+            if (scrollPercent >= 99 && !scrollTracked['100']) {
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Scroll 100%'
+                });
+                scrollTracked['100'] = true;
+            }
+        });
+        
+        // 5. FAQ 클릭 추적
+        document.querySelectorAll('.faq-header').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                gtag('event', 'click_faq', {
+                    'event_category': 'Engagement',
+                    'event_label': 'FAQ Item ' + (index + 1)
+                });
+            });
+        });
+        
+        // ===== 기존 기능 =====
+        
         // FAQ 토글
         document.querySelectorAll('.faq-header').forEach(item => {
             item.addEventListener('click', () => {
