@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,7 +8,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="원주 스파이더">
     <meta property="og:title" content="원주 스파이더 | 배민 라이더 모집 · 수수료 0원">
-    <meta property="og:description" content="수수료 0원 · 익일 정산 · 자유 근무 · 원주 1위 배민 협력사">
+    <meta property="og:description" content="수수료 0원 · 익일 정산 · 자유 근무 · 원주 배민 협력사">
     <meta property="og:image" content="https://images.unsplash.com/photo-1616051012693-e4d650146c2f?q=80&w=1200">
 
     <title>원주 스파이더 | 배민 라이더 모집 · 수수료 0원</title>
@@ -323,12 +324,12 @@
         }
         .tier-row {
             display: grid;
-            grid-template-columns: 110px 1fr auto;
+            grid-template-columns: 98px 1fr auto;
             align-items: center;
             background: #FFFFFF;
             border-radius: 12px;
             padding: 14px 16px;
-            gap: 12px;
+            gap: 8px;
             box-shadow: 0 2px 8px rgba(15,17,21,0.06);
             position: relative;
             overflow: hidden;
@@ -377,6 +378,7 @@
             color: var(--text-secondary);
             font-weight: 600;
             text-align: center;
+            white-space: nowrap;
         }
         .tier-rate {
             background: var(--bg-light);
@@ -386,6 +388,145 @@
             font-size: 14px;
             font-weight: 800;
             white-space: nowrap;
+        }
+
+
+        /* 달성 보너스 */
+        .bonus-box {
+            background: #0F1115;
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .bonus-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'BM HANNA Pro', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 14px;
+        }
+        .bonus-tag {
+            background: var(--primary);
+            color: #0F1115;
+            font-family: 'Pretendard', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 100px;
+            letter-spacing: -0.01em;
+        }
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .bonus-item {
+            text-align: center;
+            padding: 14px 8px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+        }
+        .bonus-item-cond {
+            font-size: 12px;
+            font-weight: 700;
+            color: #B6BCC6;
+            margin-bottom: 8px;
+        }
+        .bonus-item-value {
+            font-family: 'BM HANNA Pro', sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .bonus-item-value span { font-size: 13px; margin-left: 1px; }
+        .bonus-note {
+            font-size: 12px;
+            color: #8A8F99;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+        .bonus-note strong { color: var(--primary); font-weight: 800; }
+
+        /* 정비 쿠폰 */
+        .coupon-box {
+            background: #0F1115;
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .coupon-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .coupon-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 12px;
+        }
+        .coupon-step-label {
+            flex-shrink: 0;
+            background: var(--primary);
+            color: #0F1115;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 9px;
+            border-radius: 6px;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+        .coupon-step p {
+            font-size: 13px;
+            color: #B6BCC6;
+            line-height: 1.5;
+        }
+        .coupon-step strong { color: #FFFFFF; font-weight: 800; }
+        .coupon-uses-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #8A8F99;
+            margin-bottom: 8px;
+        }
+        .coupon-note {
+            font-size: 12px;
+            color: #8A8F99;
+            line-height: 1.5;
+            margin-top: 12px;
+        }
+        .coupon-uses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .coupon-chip {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .coupon-chip::before {
+            content: '';
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--primary);
+            flex-shrink: 0;
         }
 
         /* 핵심 구간 안내 */
@@ -913,6 +1054,24 @@
             font-weight: 900;
             color: var(--text-dark);
         }
+        .calc-coupon-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 11px 12px;
+            background: rgba(12,239,211,0.1);
+            border: 1px solid rgba(12,239,211,0.28);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .calc-coupon-note strong {
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
 
         /* 최종 CTA box */
         .final-headline {
@@ -937,17 +1096,17 @@
 
     <!-- 스티키 배너 -->
     <div class="urgency-banner">
-        <span class="pulse-dot"></span>건당 최대 +1,400원 더 · 수수료 0원 · 모집 중
+        <span class="pulse-dot"></span>건당 최대 +2,000원 더 · 수수료 0원 · 모집 중
     </div>
 
     <div class="container">
 
         <!-- 히어로 -->
         <header class="hero">
-            <span class="hero-badge">원주 1위 배민 협력사 · 라이더 140명+</span>
+            <span class="hero-badge">원주 배민 협력사 · 라이더 140명+</span>
             <h1 class="fade-in-up">
                 수수료 0원,<br>
-                <span style="white-space: nowrap;">건당 <span class="hero-amount">+1,400원</span> 더!</span>
+                <span style="white-space: nowrap;">건당 <span class="hero-amount">+2,000원</span> 더!</span>
             </h1>
             <p class="fade-in-up">배달비에 추가로 더 드립니다 · 익일 정산 · 자유 근무</p>
 
@@ -995,7 +1154,7 @@
                 <div class="worry-icon">😟</div>
                 <div class="worry-content">
                     <h3>"콜이 없어서 대기만 하다 퇴근해요"</h3>
-                    <p><strong>원주 1위 물량</strong>. 140명+ 라이더가 풀가동할 만큼 콜이 있습니다.</p>
+                    <p><strong>물량 걱정 없습니다</strong>. 140명+ 라이더가 풀가동할 만큼 콜이 있습니다.</p>
                 </div>
             </div>
         </section>
@@ -1003,15 +1162,15 @@
         <!-- === 프로모션 (전면 리뉴얼) === -->
         <section class="promo-section fade-in-up">
             <span class="promo-eyebrow">SPIDER REWARD</span>
-            <h2 class="promo-title">5월 가정의 달 프로모션</h2>
-            <p class="promo-subtitle">주간 완료 건수 누적 리워드</p>
+            <h2 class="promo-title">타는 만큼 쌓입니다</h2>
+            <p class="promo-subtitle">주간 완료 건수 누적 리워드 · 매주 정산</p>
 
             <!-- 7-tier 리스트 -->
             <div class="tier-list">
                 <div class="tier-row">
                     <div class="tier-name"><span class="tier-emoji">🚀</span>ENTRY</div>
-                    <div class="tier-range">121 ~ 150건</div>
-                    <div class="tier-rate">건당 200원</div>
+                    <div class="tier-range">81 ~ 150건</div>
+                    <div class="tier-rate">건당 300원</div>
                 </div>
                 <div class="tier-row">
                     <div class="tier-name"><span class="tier-emoji">🥉</span>BRONZE</div>
@@ -1041,11 +1200,49 @@
                 <div class="tier-row is-legend">
                     <div class="tier-name"><span class="tier-emoji">⭐</span>LEGEND</div>
                     <div class="tier-range">361건 이상</div>
-                    <div class="tier-rate">건당 1,400원</div>
+                    <div class="tier-rate">건당 2,000원</div>
                 </div>
             </div>
 
 
+
+            <!-- 달성 보너스 -->
+            <div class="bonus-box">
+                <div class="bonus-header">🎯 달성 보너스<span class="bonus-tag">누적 지급</span></div>
+                <div class="bonus-grid">
+                    <div class="bonus-item">
+                        <div class="bonus-item-cond">250건 달성</div>
+                        <div class="bonus-item-value">+20,000<span>원</span></div>
+                    </div>
+                    <div class="bonus-item">
+                        <div class="bonus-item-cond">330건 달성</div>
+                        <div class="bonus-item-value">+30,000<span>원</span></div>
+                    </div>
+                </div>
+                <p class="bonus-note">두 보너스는 중복 적용 — 330건 달성 시 <strong>+50,000원</strong> 모두 지급</p>
+            </div>
+
+            <!-- 정비 쿠폰 -->
+            <div class="coupon-box">
+                <div class="bonus-header">🎟️ 정비 쿠폰<span class="bonus-tag">주간 100건당 1장</span></div>
+                <div class="coupon-steps">
+                    <div class="coupon-step">
+                        <span class="coupon-step-label">모으기</span>
+                        <p>주간 완료 <strong>100건마다 쿠폰 1장</strong>씩 적립됩니다.</p>
+                    </div>
+                    <div class="coupon-step">
+                        <span class="coupon-step-label">사용하기</span>
+                        <p>쿠폰을 <strong>여러 장 모아</strong> 정비 항목별 필요 장수만큼 교환합니다.</p>
+                    </div>
+                </div>
+                <p class="coupon-uses-label">이런 정비에 쓸 수 있어요</p>
+                <div class="coupon-uses">
+                    <span class="coupon-chip">엔진오일 교환</span>
+                    <span class="coupon-chip">타이어 교환</span>
+                    <span class="coupon-chip">그 외 각종 정비</span>
+                </div>
+                <p class="coupon-note">* 정비 항목별 필요 쿠폰 장수는 상담 시 안내해 드립니다</p>
+            </div>
 
             <!-- 프로모션 계산기 -->
             <div class="calc-box">
@@ -1065,10 +1262,17 @@
                             <span class="label">주간 프로모션</span>
                             <span class="value reward" id="calc-reward"></span>
                         </div>
+                        <div class="calc-result-row" id="calc-bonus-row" style="display: none;">
+                            <span class="label">달성 보너스</span>
+                            <span class="value reward" id="calc-bonus"></span>
+                        </div>
                         <div class="calc-result-row total">
                             <span class="label">총 예상 수입</span>
                             <span class="value" id="calc-total"></span>
                         </div>
+                    </div>
+                    <div class="calc-coupon-note" id="calc-coupon-note" style="display: none;">
+                        🎟️ 정비 쿠폰 <strong id="calc-coupon"></strong> 적립
                     </div>
                     <p style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 10px;">* 배달 1건당 4,000원 기준 예상 금액입니다</p>
                 </div>
@@ -1087,8 +1291,15 @@
                 <div class="diff-item">
                     <div class="diff-icon-box">🎁</div>
                     <div class="diff-text">
-                        <strong>건당 최대 +1,400원 더 드립니다</strong>
+                        <strong>건당 최대 +2,000원 더 드립니다</strong>
                         <span>배달비에 추가로! 매주 구간별 합산 지급</span>
+                    </div>
+                </div>
+                <div class="diff-item">
+                    <div class="diff-icon-box">🎟️</div>
+                    <div class="diff-text">
+                        <strong>주간 100건당 정비 쿠폰 1장</strong>
+                        <span>모아서 엔진오일·타이어 교환 등 정비에 사용</span>
                     </div>
                 </div>
                 <div class="diff-item">
@@ -1250,7 +1461,7 @@
                         <span class="faq-icon">▼</span>
                     </div>
                     <div class="faq-body">
-                        <p>주간 완료 건수 기준으로 매주 구간별 합산 지급됩니다. 121건부터 건당 200원~1,400원까지 등급별로 적용되며, 전 구간 누적 합산이므로 많이 할수록 전부 쌓입니다.</p>
+                        <p>주간 완료 건수 기준으로 매주 구간별 합산 지급됩니다. 81건부터 건당 300원~2,000원까지 등급별로 적용되며, 전 구간 누적 합산이므로 많이 할수록 전부 쌓입니다. 여기에 250건 달성 시 +20,000원, 330건 달성 시 +30,000원 보너스가 누적으로 추가 지급됩니다. 또한 주간 100건당 정비 쿠폰 1장이 적립되며, 쿠폰을 여러 장 모아 엔진오일·타이어 교환 등 각종 정비에 사용하실 수 있습니다. 정비 항목별 필요 쿠폰 장수는 상담 시 안내해 드립니다.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1322,7 +1533,7 @@
             <!-- 최종 CTA -->
             <div class="faq-cta-box">
                 <p class="final-headline">지금 바로 시작하세요</p>
-                <p class="final-sub">수수료 0원 + 리워드<br>최대 건당 1,400원</p>
+                <p class="final-sub">수수료 0원 + 리워드<br>최대 건당 2,000원</p>
                 <p style="font-size: 13px; color: #B6BCC6; margin-bottom: 20px;">
                     수수료 0원 · 익일 정산 · 자유 근무
                 </p>
@@ -1397,13 +1608,17 @@
         document.getElementById('delivery-count').addEventListener('input', function() {
             const count = parseInt(this.value) || 0;
             const tiers = [
-                { min: 121, max: 150, rate: 200 },
+                { min: 81,  max: 150, rate: 300 },
                 { min: 151, max: 200, rate: 500 },
                 { min: 201, max: 250, rate: 800 },
                 { min: 251, max: 300, rate: 1000 },
                 { min: 301, max: 330, rate: 1200 },
                 { min: 331, max: 360, rate: 1300 },
-                { min: 361, max: 9999, rate: 1400 }
+                { min: 361, max: 9999, rate: 2000 }
+            ];
+            const bonuses = [
+                { min: 250, amount: 20000 },
+                { min: 330, amount: 30000 }
             ];
             let reward = 0;
             for (const tier of tiers) {
@@ -1411,13 +1626,32 @@
                     reward += (Math.min(count, tier.max) - tier.min + 1) * tier.rate;
                 }
             }
+            let bonus = 0;
+            for (const b of bonuses) {
+                if (count >= b.min) bonus += b.amount;
+            }
+            const coupons = Math.floor(count / 100);
             const delivery = count * 4000;
-            const total = delivery + reward;
+            const total = delivery + reward + bonus;
             const resultEl = document.getElementById('calc-result');
             if (count > 0) {
                 resultEl.style.display = 'block';
                 document.getElementById('calc-delivery').textContent = delivery.toLocaleString() + '원';
                 document.getElementById('calc-reward').textContent = '+ ' + reward.toLocaleString() + '원';
+                const bonusRow = document.getElementById('calc-bonus-row');
+                if (bonus > 0) {
+                    bonusRow.style.display = 'flex';
+                    document.getElementById('calc-bonus').textContent = '+ ' + bonus.toLocaleString() + '원';
+                } else {
+                    bonusRow.style.display = 'none';
+                }
+                const couponNote = document.getElementById('calc-coupon-note');
+                if (coupons > 0) {
+                    couponNote.style.display = 'flex';
+                    document.getElementById('calc-coupon').textContent = coupons + '장';
+                } else {
+                    couponNote.style.display = 'none';
+                }
                 document.getElementById('calc-total').textContent = total.toLocaleString() + '원';
             } else {
                 resultEl.style.display = 'none';
