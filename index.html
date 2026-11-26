@@ -1119,10 +1119,10 @@
         <header class="hero">
             <span class="hero-badge">원주 배민 협력사 · 라이더 140명+</span>
             <h1 class="fade-in-up">
-                수수료 0원,<br>
-                <span style="white-space: nowrap;">건당 <span class="hero-amount">+2,000원</span> 더!</span>
+                원주에서 배달로<br>
+                <span style="white-space: nowrap;"><span class="hero-amount">부수입</span> 만들기</span>
             </h1>
-            <p class="fade-in-up">배달비에 추가로 더 드립니다 · 익일 정산 · 자유 근무<br>투잡·주말·하루 1시간도 OK</p>
+            <p class="fade-in-up">퇴근 후 · 주말 · 하루 1시간도 OK<br><strong>수수료 0원 · 건당 최대 +2,000원 · 익일 정산</strong></p>
 
             <a href="https://deliview.org/join/xjT_1HeA0ejaorLk" id="hero-cta-btn" class="hero-cta fade-in-up">
                 1분 만에 가입 신청하기 →
@@ -1184,8 +1184,14 @@
             <p class="promo-subtitle">주간 완료 건수 누적 리워드 · 매주 정산</p>
             <p style="font-size: 12px; color: rgba(15,17,21,0.6); margin-top: -2px; margin-bottom: 8px;">주 80건 미만이어도 수수료 0원 · 익일 정산은 똑같이 적용돼요</p>
 
-            <!-- 7-tier 리스트 -->
-            <div class="tier-list">
+            <!-- 7-tier 리스트 (접기) -->
+            <div style="background: rgba(255,255,255,0.7); border-radius: 14px; padding: 16px 18px; margin: 8px 0 12px; text-align: left;">
+                <div style="font-size: 15px; font-weight: 800; color: #0F1115;">주 81건부터 건당 +300원 → 361건 이상 건당 +2,000원</div>
+                <div style="font-size: 12px; color: rgba(15,17,21,0.6); margin-top: 4px;">배달비와 별도로, 많이 탈수록 구간별로 합산 지급</div>
+            </div>
+            <details id="tier-details" style="margin-bottom: 8px;">
+                <summary style="cursor: pointer; list-style: none; text-align: center; font-size: 14px; font-weight: 700; color: #0F1115; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.45);">구간별 리워드 전체 보기 ▾</summary>
+                <div class="tier-list">
                 <div class="tier-row">
                     <div class="tier-name"><span class="tier-emoji">🚀</span>ENTRY</div>
                     <div class="tier-range">81 ~ 150건</div>
@@ -1222,6 +1228,7 @@
                     <div class="tier-rate">건당 2,000원</div>
                 </div>
             </div>
+            </details>
 
 
 
@@ -1632,6 +1639,9 @@
         });
         document.getElementById('guide-join-btn').addEventListener('click', function() {
             gtag('event', 'click_join', { 'event_category': 'CTA', 'event_label': 'Start Guide' });
+        });
+        document.getElementById('tier-details').addEventListener('toggle', function() {
+            if (this.open) gtag('event', 'open_tier', { 'event_category': 'Engagement', 'event_label': 'Tier Details' });
         });
         document.getElementById('hero-guide-link').addEventListener('click', function() {
             gtag('event', 'click_guide', { 'event_category': 'Engagement', 'event_label': 'Hero Guide Link' });
